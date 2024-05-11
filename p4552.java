@@ -7,22 +7,20 @@ public class p4552 {
     public static void main(String[] args) {
         Scanner scan=new Scanner(System.in);
         int n=scan.nextInt();
-        int arr[]=new int[n];
-        long cf[]=new long [n];
-        for (int i = 0; i < n; i++) {
-            arr[i]=scan.nextInt();
-        }
-        long a=0,b=0;
+        int arr[]=new int [n];
+        arr[0]=scan.nextInt();
+        long max=0;
+        long min=0;
         for (int i=1;i<n;i++){
-            long x=arr[i]-arr[i-1];
-            if (x>=0){
-                a+=x;
-            }else{
-                b+=Math.abs(x);
+            arr[i]=scan.nextInt();
+            if (arr[i]>arr[i-1]){
+                max+=arr[i]-arr[i-1];
             }
-            cf[i]=x;
+            else{
+                min+= Math.abs(arr[i]-arr[i-1]);
+            }
         }
-        System.out.println(Math.max(a,b));
-        System.out.println((Math.abs(a-b)+1));
+        System.out.println(Math.max(max,min));
+        System.out.println(Math.abs(max-min)+1);
     }
 }
