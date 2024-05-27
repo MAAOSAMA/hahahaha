@@ -20,16 +20,16 @@ public class javac11J {
             out[i]=z;
         }
         for (int i=0;i<n;i++){
-            int aa=in[i];
+            int aa=in[i]+out[i];
             int index=i;
             for (int j=i+1;j<n;j++){
-                if (in[j]<aa){
-                    aa=in[j];
+                if (in[j]+out[j]<aa){
+                    aa=in[j]+out[j];
                     index=j;
                 }
             }
             in[index]=in[i];
-            in[i]=aa;
+            in[i]=aa-out[index];
             int t=out[i];
             out[i]=out[index];
             out[index]=t;
